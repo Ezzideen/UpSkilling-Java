@@ -5,7 +5,7 @@ public class FirstExample {
 	public static void main(String[] args) {
 		byte b = 1;
 		short s = 2;
-		char c = 'A';
+		char c = 96;
 		int i = 15;
 		long l = 5;
 		float f = 2.2f;
@@ -18,6 +18,7 @@ public class FirstExample {
 		ii = 10;
 		
 		System.out.println(i);
+		System.out.println(c);
 		
 	}
 
