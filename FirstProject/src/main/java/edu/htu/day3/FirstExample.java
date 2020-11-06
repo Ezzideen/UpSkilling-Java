@@ -4,6 +4,7 @@ public class FirstExample {
 
 
 	public static void main(String[] args) {
+<<<<<<< HEAD
 		String s1 = "5";
 		String s2 = "6";
 		System.out.println(s1 + s2);
@@ -28,6 +29,25 @@ public class FirstExample {
 	    System.out.println(dd);
 	    
 
+=======
+		byte b = 1;
+		short s = 2;
+		char c = 96;
+		int i = 15;
+		long l = 5;
+		float f = 2.2f;
+		double d = 5.5;
+		
+		boolean t = true;
+		boolean fa = false;
+		
+		int ii;
+		ii = 10;
+		
+		System.out.println(i);
+		System.out.println(c);
+		
+>>>>>>> 1ea3e2fb49788d39082646c3495c60d64070f1f5
 	}
 
 }
