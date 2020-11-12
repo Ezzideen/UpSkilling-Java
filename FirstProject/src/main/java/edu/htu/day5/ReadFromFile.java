@@ -10,11 +10,12 @@ public class ReadFromFile {
 		File file = new File("D:/source/UpSkilling-Java/Files/test.txt");
 		FileReader reader = new FileReader(file);
 		int i;
-		String readFromFile = "" ;
-		while ((i = reader.read()) != -1)
+		String readFromFile = "";
+		while ((i = reader.read()) != -1) {
 			readFromFile = readFromFile + ((char) i);
+		}
 		reader.close();
-		
+
 		System.out.println(readFromFile);
 
 	}
