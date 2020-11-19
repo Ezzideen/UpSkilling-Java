@@ -31,4 +31,10 @@ public class CairoPotatoMaker extends EgyptPotatoMaker {
 		
 	}
 
+	@Override
+	public void prepare() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

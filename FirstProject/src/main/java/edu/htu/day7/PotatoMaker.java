@@ -1,41 +1,22 @@
 package edu.htu.day7;
 
-public abstract class PotatoMaker {
+public interface PotatoMaker {
 
-	private int potaot;
-	private double oli;
+	public static final String NAME = "";
 	
-	public PotatoMaker(int potato,double oil) {
-		setPotaot(potato);
-		setOli(oil);
+	public static void test() {
+		
 	}
-
-	public int getPotaot() {
-		return potaot;
-	}
-
-	public void setPotaot(int potaot) {
-		this.potaot = potaot;
-	}
-
-	public double getOli() {
-		return oli;
-	}
-
-	public void setOli(double oli) {
-		this.oli = oli;
-	}
-
-
-	protected abstract void clean();
-
-	protected abstract void slice();
-
-	protected abstract void fry();
-
-	protected abstract void present();
 	
-	public final void prepare() {
+	void clean();
+
+	void slice();
+
+	void fry();
+
+	void present();
+
+	default void prepare() {
 		clean();
 		slice();
 		fry();
