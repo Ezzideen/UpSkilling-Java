@@ -7,6 +7,7 @@ public class PotatoMakerTester {
 //		PotatoMaker potatoMaker = new PotatoMaker(1,1.5);
 //		potatoMaker.prepare();
 		
+		PotatoMaker.test();
 //		System.out.println("EgyptPotatoMaker*********************");
 //		EgyptPotatoMaker egyptPotatoMaker = new EgyptPotatoMaker(3,3.5);
 //		egyptPotatoMaker.prepare();

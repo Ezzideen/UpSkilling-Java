@@ -1,30 +1,33 @@
 package edu.htu.day7;
 
-public class IraqPotaoMaker extends PotatoMaker  {
-
-	public IraqPotaoMaker(int potato, double oil) {
-		super(potato, oil);
-	}
+public class IraqPotaoMaker implements PotatoMaker {
 
 	@Override
-	protected void slice() {
+	public void slice() {
 		System.out.println("Iraq sliceing....");
 	}
 
 	@Override
-	protected void clean() {
-		System.out.println("Iraq cleaning....");		
+	public void clean() {
+		System.out.println("Iraq cleaning....");
 	}
 
 	@Override
-	protected void fry() {
-		System.out.println("Iraq frying....");		
+	public void fry() {
+		System.out.println("Iraq frying....");
 	}
 
 	@Override
-	protected void present() {
-		System.out.println("Iraq presenting....");		
+	public void present() {
+		System.out.println("Iraq presenting....");
 	}
-	
-	
+
+	@Override
+	public void prepare() {
+		clean();
+		slice();
+		fry();
+		present();
+	}
+
 }
