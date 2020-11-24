@@ -51,7 +51,7 @@ public class RetriveFromFile {
 			// one to fill ID :
 			// take 2 arguments:1)the file to write in 2)the ID as random number.
 
-			writeOnFile(file1, Integer.toString((int) Math.round(100 * (Math.random()))));
+			writeOnFile(file1, Integer.toString((int) Math.round(1000 * (Math.random()))));
 			// the second to fill the customer name
 			String name = JOptionPane.showInputDialog("please enter the name for user #" + count + " : ");
 			writeOnFile(file1, name);
