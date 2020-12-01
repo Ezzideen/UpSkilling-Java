@@ -13,7 +13,7 @@ public class PotatoMakerTester {
 //		egyptPotatoMaker.prepare();
 		
 		System.out.println("IraqPotatoMaker*********************");
-		IraqPotaoMaker iraqPotaoMaker= new IraqPotaoMaker(3,3.5);
+		IraqPotaoMaker iraqPotaoMaker= new IraqPotaoMaker();
 		iraqPotaoMaker.prepare();
 		
 	}

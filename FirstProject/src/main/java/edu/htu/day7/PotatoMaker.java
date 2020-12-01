@@ -8,7 +8,7 @@ public interface PotatoMaker {
 		
 	}
 	
-	void clean();
+    void clean();
 
 	void slice();
 
