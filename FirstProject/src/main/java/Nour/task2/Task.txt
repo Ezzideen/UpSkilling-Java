@@ -1,0 +1,5 @@
+1,Nour,800,web
+2,Zain,900,Network
+3,Tim,700,Java
+5,Qays,500,C#
+4,Tim,600,Data Analest
