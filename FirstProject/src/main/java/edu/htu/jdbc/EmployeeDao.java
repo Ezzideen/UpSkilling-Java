@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import edu.htu.bean.Department;
 import edu.htu.bean.Employee;
 
 public class EmployeeDao extends GenericDao {
@@ -35,7 +36,21 @@ public class EmployeeDao extends GenericDao {
 		employee.setId(rs.getInt("id"));
 		employee.setName(rs.getString("name"));
 		employee.setSalary(rs.getDouble("salary"));
+		Department department = findDepartment(rs.getInt("dpartment_id"));
+		employee.setDepartment(department);
 		return employee;
+	}
+	
+	public Department findDepartment(int id) throws SQLException {
+		PreparedStatement ps = getPreparedStatement("SELECT * FROM hr_departments WHERE id = ?");
+		ps.setInt(1, id);
+		ResultSet rs = ps.executeQuery();
+		Department department = new Department();
+		while (rs.next()) {
+			department.setId(rs.getInt("id"));
+			department.setName(rs.getString("name"));
+		}
+		return department;
 	}
 
 	public void insertEmployee(Employee employee) throws SQLException {

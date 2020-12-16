@@ -14,11 +14,11 @@ public class TestEmployee {
 //		employee.setSalary(370);
 		EmployeeDao dao = new EmployeeDao();
 		try {
-			Employee employee = dao.findEmployeeByName("Noor");
-//			ArrayList<Employee> lstEmployees = dao.lstEmployees();
-//			for (Employee employee : lstEmployees) {
+//			Employee employee = dao.findEmployeeByName("Noor");
+			ArrayList<Employee> lstEmployees = dao.lstEmployees();
+			for (Employee employee : lstEmployees) {
 				System.out.println(employee);
-//			}
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
