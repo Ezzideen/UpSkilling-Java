@@ -8,13 +8,35 @@ public class Test {
 
 		Persone p1 = new Persone(10,"ali");
 		Persone p2 = new Persone(5,"Mohammad");
-		p1.eat();
+//		p1.eat();
 		
-		C c = new C();
+		String s = "Ali";
+		String s2 = new String("Ali");
 		
-		if(p1.equals(c)) {
-			
+		System.out.println(s);
+		System.out.println(s2);
+		System.out.println(p1);
+		
+		Persone p3 = null;
+		
+		if(p1.equals(p3)) {
+			System.out.println("true");
+		}else {
+			System.out.println("false");
 		}
+		
+		System.out.println("end...");
+		
+		
+		String s1 = "ali";
+		
+//		String s2 = new String("ali");
+		if(s1 == s2) {
+			System.out.println("true");
+		}else {
+			System.out.println("false");
+		}
+		
 		
 
 	}

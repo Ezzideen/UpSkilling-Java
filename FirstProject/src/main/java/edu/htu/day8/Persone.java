@@ -42,8 +42,14 @@ public class Persone extends Humman {
 			if (otherPerson.getId() == getId()) {
 				return true;
 			}
+		}else {
+			System.out.println("obj not person");
 		}
 		return false;
 	}
-
+	
+	@Override
+	public String toString() {
+		return getId() +" :: " +getName();
+	}
 }
