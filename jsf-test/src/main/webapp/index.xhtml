@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	>
+<head> 
+<title> Hello World Web Page </title>
+<h:messages></h:messages>
+</head>
+<body>
+<h:form id="frm">
+<h:panelGrid columns="2" id="pnl">
+<h:outputText value="num1" />
+<h:inputText id="txtNumberOne" value="#{mbTest.numberOne}" required="true" requiredMessage="please enter num1" validatorMessage="number is not correct">
+<f:validateLength minimum="1" maximum="10" for="txtNumberOne"/>
+</h:inputText>
+<h:outputText value="num2" />
+<h:inputText value="#{mbTest.numberTow}" required="true" requiredMessage="please enter num2"/>
+</h:panelGrid>
+<h:panelGrid columns="1">
+<h:commandButton value="Add" action="#{mbTest.add}"/>
+<h:outputText value="#{mbTest.sum}"/>
+</h:panelGrid>
+</h:form>
+</body>
+</html>
