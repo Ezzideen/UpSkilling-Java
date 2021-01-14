@@ -29,6 +29,19 @@ public class EmployeeDao extends GenericDao {
 		}
 		return lstEmployees;
 	}
+	
+	public ArrayList<Department> lstDepartments() throws Exception {
+		PreparedStatement ps = getPreparedStatement("SELECT * FROM hr_departments");
+		ResultSet rs = ps.executeQuery();
+		ArrayList<Department> lstDepartments = new ArrayList<>();
+		while (rs.next()) {
+			Department department = new Department();
+			department.setId(rs.getInt("id"));
+			department.setName(rs.getString("name"));
+			lstDepartments.add(department);
+		}
+		return lstDepartments;
+	}
 
 	private Employee populatEmployee(ResultSet rs) throws Exception {
 		Employee employee = new Employee();

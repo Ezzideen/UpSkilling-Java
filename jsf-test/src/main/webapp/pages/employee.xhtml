@@ -1,39 +1,41 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui"
-	>
-<head> 
-<title> employee </title>
-<h:messages></h:messages>
-</head>
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>employee</title>
+	<h:messages></h:messages>
+</h:head>
 <h:body>
-<h:form id="frm">
-<p:panelGrid columns="2">
-<p:outputLabel value="id"/>
-<p:inputText value="#{mbEmp.employee.id}"/>
-<p:outputLabel value="Nmae"/>
-<p:inputText value="#{mbEmp.employee.name}" />
-<p:outputLabel value="salary"/>
-<p:inputText value="#{mbEmp.employee.salary}"/>
-</p:panelGrid>
-<p:panelGrid columns="4">
-<p:commandButton value="Add" action="#{mbEmp.add}"/>
-<p:commandButton value="Update" action="#{mbEmp.update}"/>
-<p:commandButton value="Delete" action="#{mbEmp.delete}"/>
-<h:commandButton value="Find" action="#{mbEmp.find}"/>
-</p:panelGrid>
-
-<p:dataTable value ="#{mbEmp.listEmployees}" var ="employee" selection="#{mbEmp.employee}">
-   <p:column>    				
-      <f:facet name = "header">Name</f:facet>    				
-      #{employee.name}
-   </p:column>
-   <p:column>
-      <f:facet name = "header">Salary</f:facet>
-      #{employee.salary}
-   </p:column>
-</p:dataTable>
-</h:form>
+	<h:form id="frm">
+		<div align="center" >
+			<p:panelGrid columns="2" id="data">
+				<p:outputLabel value="Nmae" />
+				<p:inputText value="#{mbEmp.employee.name}" />
+				<p:outputLabel value="salary" />
+				<p:inputText value="#{mbEmp.employee.salary}" />
+				<p:outputLabel value="Department" />
+				<p:selectOneMenu value="#{mbEmp.employee.department}" >
+		            <f:selectItem itemLabel="select department" itemValue="null"/>
+					<f:selectItems value="#{mbDept.listDepartments}" var="department" itemLabel="#{department.name}" itemValue="#{department}"/>		            
+		        </p:selectOneMenu>
+				<p:column>
+				<p:commandButton value="Add" action="#{mbEmp.add}" process="data" update="table"/>
+				<p:commandButton value="Update" action="#{mbEmp.update}" />
+				</p:column>
+			</p:panelGrid>
+		</div>
+	<p:dataTable id="table" value="#{mbEmp.listEmployees}" var="employee" selection="#{mbEmp.employee}" 
+	selectionMode="single"	rowKey="#{employee.id}" rows="50" paginator="true">
+	<p:ajax event="rowSelect" update=":frm:data" />
+			<f:facet name="header">Employees</f:facet>
+			<p:column headerText="Name" filterBy="#{employee.name}" filterMatchMode="contains" sortBy="#{employee.name}">    				
+     			 #{employee.name}
+   			</p:column>
+			<p:column headerText="Salary" filterBy="#{employee.salary}">
+     			 #{employee.salary}
+   			</p:column>
+		</p:dataTable>
+	</h:form>
 </h:body>
 </html>

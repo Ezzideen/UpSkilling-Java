@@ -11,23 +11,19 @@ import jdbc.EmployeeDao;
 @ManagedBean(name = "mbEmp")
 @ViewScoped
 public class MBEmployee {
-
+	EmployeeDao dao = new EmployeeDao();
 	private Employee employee;
 
-	public String add() throws Exception {
-		EmployeeDao dao = new EmployeeDao();
-		dao.insertEmployee(employee);
-		return null;
+	public void add() throws Exception {
+		dao.insertEmployee(getEmployee());
 	}
 	
 	public String find() throws Exception {
-		EmployeeDao dao = new EmployeeDao();
 		employee = dao.findEmployee(getEmployee().getId());
 		return null;
 	}
 
 	public String update() throws Exception {
-		EmployeeDao dao = new EmployeeDao();
 		dao.updateEmployee(employee);
 		return null;
 	}
@@ -48,7 +44,6 @@ public class MBEmployee {
 	}
 	
 	public ArrayList<Employee> getListEmployees() throws Exception{
-		EmployeeDao dao = new EmployeeDao();
 		return dao.lstEmployees();
 	}
 }
