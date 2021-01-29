@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<h:body>
+	<ui:composition template="WEB-INF/layout/templeat.xhtml">
+		<ui:define name="content">
+			<h:form id="frm">
+				<p:panelGrid columns="2" id="pnlData">
+					<p:outputLabel value="Employee Name" />
+					<p:inputText value="#{mbEmployee.employee.name}" disabled="#{mbEmployee.readOnlyMode}" />
+					<p:outputLabel value="Employee Salary" />
+					<p:inputText value="#{mbEmployee.employee.salary}" disabled="#{mbEmployee.readOnlyMode}" />
+					<p:outputLabel value="Department" />
+					<p:selectOneMenu value="#{mbEmployee.employee.department}" converter="omnifaces.SelectItemsIndexConverter" disabled="#{mbEmployee.readOnlyMode}">
+						<f:selectItem itemLabel="Select Department" itemValue="#{null}" />
+						<f:selectItems value="#{mbDepartment.listDepartments}" var="department" itemLabel="#{department.name}" itemValue="#{department}" />
+					</p:selectOneMenu>
+					<f:facet name="footer">
+							<p:commandButton value="Add" action="#{mbEmployee.addEmployee}" process="@this" update="tblEmployeess,@this" rendered="#{mbEmployee.addMode}" />
+							<p:commandButton value="Edit" actionListener="#{mbEmployee.setEditMode}" process="@this" update="pnlData" rendered="#{mbEmployee.readOnlyMode}" />
+							<p:commandButton value="Update" action="#{mbEmployee.updateEmployee}" process="@this" update="tblEmployeess,@this"
+								rendered="#{mbEmployee.editMode}" />
+							<p:commandButton value="Delete" action="#{mbEmployee.deleteEmployee}" process="@this" update="tblEmployeess,pnlData"
+								rendered="#{mbEmployee.editMode}" />
+							<p:commandButton value="Rest" action="#{mbEmployee.rest}" process="@this" update="pnlData" />
+					</f:facet>
+				</p:panelGrid>
+
+				<p:dataTable id="tblEmployeess" value="#{mbEmployee.lstEmployees}" var="employee" selection="#{mbEmployee.employee}" selectionMode="single"
+					rowKey="#{employee.id}" rows="10" paginator="true">
+					<p:ajax update="frm:pnlData" event="rowSelect" listener="#{mbEmployee.setReadOnlyMode()}" />
+					<p:column headerText="Employee Name">
+			#{employee.name}
+			</p:column>
+					<p:column headerText="Employee Salary">
+			#{employee.salary}
+			</p:column>
+					<p:column headerText="Employee Department">
+			#{employee.department.name}
+			</p:column>
+
+				</p:dataTable>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
