@@ -19,11 +19,11 @@
 						<f:selectItems value="#{mbDepartment.listDepartments}" var="department" itemLabel="#{department.name}" itemValue="#{department}" />
 					</p:selectOneMenu>
 					<f:facet name="footer">
-							<p:commandButton value="Add" action="#{mbEmployee.addEmployee}" process="@this" update="tblEmployeess,@this" rendered="#{mbEmployee.addMode}" />
+							<p:commandButton value="Add" action="#{mbEmployee.addEmployee}" process="pnlData" update="tblEmployeess,pnlData" rendered="#{mbEmployee.addMode}" />
 							<p:commandButton value="Edit" actionListener="#{mbEmployee.setEditMode}" process="@this" update="pnlData" rendered="#{mbEmployee.readOnlyMode}" />
-							<p:commandButton value="Update" action="#{mbEmployee.updateEmployee}" process="@this" update="tblEmployeess,@this"
+							<p:commandButton value="Update" action="#{mbEmployee.updateEmployee}" process="pnlData" update="tblEmployeess,pnlData"
 								rendered="#{mbEmployee.editMode}" />
-							<p:commandButton value="Delete" action="#{mbEmployee.deleteEmployee}" process="@this" update="tblEmployeess,pnlData"
+							<p:commandButton value="Delete" action="#{mbEmployee.deleteEmployee}" process="pnlData" update="tblEmployeess,pnlData"
 								rendered="#{mbEmployee.editMode}" />
 							<p:commandButton value="Rest" action="#{mbEmployee.rest}" process="@this" update="pnlData" />
 					</f:facet>
